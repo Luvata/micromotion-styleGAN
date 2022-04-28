@@ -76,7 +76,8 @@ def get_text_latent(args,
                                  range=(-1, 1))
 
     for degree in tqdm(degrees):
-        full_text = eval("f'{}'".format(text))
+        full_text = eval("f'{}'".format(text).format(degree))
+        print(full_text)
         text_inputs = torch.cat([clip.tokenize(full_text)]).cuda()
         random.seed(seed)
         torch.manual_seed(seed)
